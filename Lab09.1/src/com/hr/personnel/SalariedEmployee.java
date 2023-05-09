@@ -7,6 +7,7 @@ import java.time.LocalDate;
 public class SalariedEmployee extends Employee {
     // Instance variables
     private double salary;
+    private static final double STANDARD_DEDUCTION = 10_000.0;
 
     public SalariedEmployee() {
     }
@@ -30,6 +31,11 @@ public class SalariedEmployee extends Employee {
     @Override
     public void payTaxes() {
         System.out.println(getName() + " paid taxes of " + getSalary() * SALARIED_TAX_RATE);
+    }
+
+    @Override
+    public double getStandardDeduction() {
+        return STANDARD_DEDUCTION;
     }
 
     public void takeVacation() {
