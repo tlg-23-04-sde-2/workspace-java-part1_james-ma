@@ -8,6 +8,8 @@
 
 package com.hr.personnel;
 
+import java.lang.invoke.SerializedLambda;
+
 /**
  * The Department class manages employees.
  *
@@ -56,6 +58,25 @@ public class Department {
     public void payEmployees() {
         for (int i = 0; i < currentIndex; i++) {
             employees[i].pay();
+        }
+    }
+
+    /*
+     * Forced holiday break
+     * Make all salaried employees take vacation
+     */
+    public void holidayBreak() {
+        for (int i = 0; i < currentIndex; i++) {
+            // if employees[i] is really a SalariedEmploy object
+            // "downcast" the Employee reference to more specific type SalariedEmployee
+            // Note: we must check for the correct type before downcast
+
+            // Note: instanceof is IS_A check
+            // e.g. Executive instance
+            if (employees[i] instanceof SalariedEmployee) {
+                SalariedEmployee semp = (SalariedEmployee) employees[i];
+                semp.takeVacation();
+            }
         }
     }
 

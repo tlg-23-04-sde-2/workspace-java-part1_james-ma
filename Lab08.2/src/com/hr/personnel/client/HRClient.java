@@ -8,10 +8,7 @@
 
 package com.hr.personnel.client;
 
-import com.hr.personnel.Department;
-import com.hr.personnel.Employee;
-import com.hr.personnel.HourlyEmployee;
-import com.hr.personnel.SalariedEmployee;
+import com.hr.personnel.*;
 
 import java.time.LocalDate;
 
@@ -30,6 +27,7 @@ class HRClient {
         dept.addEmployee(new HourlyEmployee("Julie", LocalDate.of(2000, 2, 2), 40, 40));
         dept.addEmployee(new SalariedEmployee("James", LocalDate.of(2022 , 1, 1), 2500.0));
         dept.addEmployee(new HourlyEmployee("Jake", LocalDate.of(2023, 1, 1), 20, 40));
+        dept.addEmployee(new Executive("Ja", LocalDate.of(2024, 1, 1), 250_000.0));
 
         // list its Employees
         System.out.println("\nList employees:");
@@ -42,5 +40,9 @@ class HRClient {
         // pay employees
         System.out.println("Pay employees:");
         dept.payEmployees();
+
+        // forced holiday break
+        System.out.println("\nForced holiday break");
+        dept.holidayBreak();
     }
 }
